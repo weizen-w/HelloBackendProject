@@ -49,11 +49,13 @@ public class CityControllerTest {
     public void return_list_of_cities_for_not_empty_database() throws Exception {
       mockMvc.perform(get("/city/all"))
           .andExpect(status().isOk())
-          .andExpect(jsonPath("$.size()", is(2)))
+          .andExpect(jsonPath("$.size()", is(3)))
           .andExpect(jsonPath("$.[0].id", is(1)))
           .andExpect(jsonPath("$.[1].id", is(2)))
+          .andExpect(jsonPath("$.[2].id", is(3)))
           .andExpect(jsonPath("$.[0].name", is("Paris")))
-          .andExpect(jsonPath("$.[1].name", is("Berlin")));
+          .andExpect(jsonPath("$.[1].name", is("Berlin")))
+          .andExpect(jsonPath("$.[2].name", is("Prague")));
     }
   }
 
@@ -71,7 +73,7 @@ public class CityControllerTest {
                   "  \"name\": \"Amsterdam\" " +
                   "}"))
           .andExpect(status().isOk())
-          .andExpect(jsonPath("$.id", is(3)));
+          .andExpect(jsonPath("$.id", is(4)));
     }
   }
 
