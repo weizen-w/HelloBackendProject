@@ -4,6 +4,9 @@ values ('Paris');
 insert into cities(name)
 values ('Berlin');
 
+insert into cities(name)
+values ('Prague');
+
 insert into events(name, city_id)
 values ('Jazz Concert', 1);
 
